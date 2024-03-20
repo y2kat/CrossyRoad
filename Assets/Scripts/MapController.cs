@@ -15,6 +15,8 @@ public class MapController : MonoBehaviour
     public GameObject[] tiles;
     private int tileDifference;
 
+    public Transform tileSpawnPoint;
+
     private void Awake()
     {
         map = new PlayerInputActions();
@@ -44,6 +46,7 @@ public class MapController : MonoBehaviour
 
     public void CreateTile()
     {
+        Vector3 spawnPosition = tileSpawnPoint.position - Vector3.forward * lane;
         Instantiate(tiles[Random.Range(0, tiles.Length)], Vector3.forward * lane, Quaternion.identity);
         lane++;
     }

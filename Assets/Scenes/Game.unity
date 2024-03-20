@@ -158,6 +158,7 @@ MonoBehaviour:
   - {fileID: 7758945416733533350, guid: daa9d29a8af4f7140935a52f19092ae5, type: 3}
   - {fileID: 4511707528380163649, guid: 36e1320479b501940bac1b3b29868339, type: 3}
   - {fileID: 5241893762989835975, guid: 3617a77c2138ac141a2d8dd081493883, type: 3}
+  tileSpawnPoint: {fileID: 445620185}
 --- !u!4 &445620185
 Transform:
   m_ObjectHideFlags: 0
