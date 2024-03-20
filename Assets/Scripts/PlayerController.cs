@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private PlayerInputActions inputActions;
-    private float forceMovement = 5;
+    public float forceMovement = 1;
 
     private void Awake()
     {

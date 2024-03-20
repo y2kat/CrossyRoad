@@ -8,12 +8,28 @@ public class MapController : MonoBehaviour
 {
     [SerializeField]
     private PlayerInputActions map;
-    private float forceMovement = 5;
+    public float forceMovement = 1;
 
     [SerializeField]
     private int lane = 0;
     public GameObject[] tiles;
     private int tileDifference;
+
+    private void Awake()
+    {
+        map = new PlayerInputActions();
+        map.Enable();
+    }
+
+    void Start()
+    {
+        for (int i = 0; i < tileDifference; i++)
+        {
+            CreateTile();
+        }
+
+        map.Standard.Movement.performed += MapMovement;
+    }
 
     private void MapMovement(InputAction.CallbackContext context)
     {
