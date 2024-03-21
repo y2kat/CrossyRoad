@@ -365,7 +365,6 @@ MonoBehaviour:
   tileDifference: 10
   parentObject: {fileID: 445620185}
   player: {fileID: 1640099115}
-  tileZSize: 1
 --- !u!4 &445620185
 Transform:
   m_ObjectHideFlags: 0
@@ -1236,7 +1235,7 @@ GameObject:
   - component: {fileID: 1640099116}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

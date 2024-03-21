@@ -19,7 +19,6 @@ public class MapController : MonoBehaviour
 
     public Transform parentObject;
     public GameObject player;
-    public float tileZSize = 1;
 
     private void Awake()
     {

@@ -38,7 +38,10 @@ public class PlayerController : MonoBehaviour
             GameOver();
         }
 
-        Debug.Log("morido");
+        else if (other.CompareTag("coin"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 
     public void GameOver()
