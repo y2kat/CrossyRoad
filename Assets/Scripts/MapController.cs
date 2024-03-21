@@ -11,11 +11,11 @@ public class MapController : MonoBehaviour
     public float forceMovement = 1;
 
     [SerializeField]
-    private int lane = 0;
+    public int lane = 0;
     [SerializeField]
     public GameObject[] tiles;
     [SerializeField]
-    private int tileDifference = 20;
+    private int tileDifference = 10;
 
     public Transform parentObject;
     public GameObject player;
@@ -48,10 +48,10 @@ public class MapController : MonoBehaviour
             // Genera un nuevo tile
             CreateTile();
 
-            if (player.transform.position.z >= tiles[tiles.Length - 5].transform.position.z)
+            if (player.transform.position.z >= tiles[tiles.Length - 1].transform.position.z)
             {
                 // Genera tiles adicionales
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 1; i++)
                 {
                     CreateTile();
                 }
