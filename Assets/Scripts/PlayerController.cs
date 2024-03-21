@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private PlayerInputActions inputActions;
     public float forceMovement = 1;
     public bool alive = true;
+    public PanelManager panelManager;
+    public Menu menu;
 
     private void Awake()
     {
@@ -28,5 +30,28 @@ public class PlayerController : MonoBehaviour
         transform.position += direction;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("car"))
+        {
+            alive = false;
+            GameOver();
+        }
 
+        Debug.Log("morido");
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("Game Over");
+        //Time.timeScale = 0;
+
+        /*int highScore = PlayerPrefs.GetInt("Highscore", 0);
+        if (score > highScore)
+        {
+            PlayerPrefs.SetInt("Highscore", score);
+        }*/
+
+        menu.showDeathScreen();
+    }
 }
