@@ -15,9 +15,10 @@ public class MapController : MonoBehaviour
     [SerializeField]
     public GameObject[] tiles;
     [SerializeField]
-    private int tileDifference;
+    private int tileDifference = 20;
 
     public Transform parentObject;
+    public GameObject player;
 
     private void Awake()
     {
@@ -46,6 +47,15 @@ public class MapController : MonoBehaviour
 
             // Genera un nuevo tile
             CreateTile();
+
+            if (player.transform.position.z >= tiles[tiles.Length - 5].transform.position.z)
+            {
+                // Genera tiles adicionales
+                for (int i = 0; i < 3; i++)
+                {
+                    CreateTile();
+                }
+            }
         }
     }
 
