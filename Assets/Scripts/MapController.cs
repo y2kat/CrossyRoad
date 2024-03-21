@@ -12,10 +12,12 @@ public class MapController : MonoBehaviour
 
     [SerializeField]
     private int lane = 0;
+    [SerializeField]
     public GameObject[] tiles;
+    [SerializeField]
     private int tileDifference;
 
-    public Transform tileSpawnPoint;
+    public Transform parentObject;
 
     private void Awake()
     {
@@ -36,18 +38,21 @@ public class MapController : MonoBehaviour
     private void MapMovement(InputAction.CallbackContext context)
     {
         Vector2 movementInput = context.ReadValue<Vector2>();
-        Vector3 direction = new Vector3(0, 0, movementInput.y) * forceMovement;
-        transform.Translate(direction);
         if (movementInput.y > 0)
         {
+            // Mueve el mapa en la dirección opuesta al jugador
+            Vector3 direction = new Vector3(0, 0, -movementInput.y) * forceMovement;
+            transform.Translate(direction);
+
+            // Genera un nuevo tile
             CreateTile();
         }
     }
 
     public void CreateTile()
     {
-        Vector3 spawnPosition = tileSpawnPoint.position - Vector3.forward * lane;
-        Instantiate(tiles[Random.Range(0, tiles.Length)], Vector3.forward * lane, Quaternion.identity);
+        Vector3 spawnPosition = parentObject.position + Vector3.forward * lane;
+        Instantiate(tiles[Random.Range(0, tiles.Length)], spawnPosition, Quaternion.identity, parentObject);
         lane++;
     }
 }
