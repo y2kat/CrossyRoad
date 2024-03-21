@@ -20,10 +20,14 @@ public class MapController : MonoBehaviour
     public Transform parentObject;
     public GameObject player;
 
+    [SerializeField] private Vector3 initialPosition;
+
     private void Awake()
     {
         map = new PlayerInputActions();
         map.Enable();
+
+        initialPosition = transform.position;
     }
 
     void Start()
@@ -64,5 +68,11 @@ public class MapController : MonoBehaviour
         Vector3 spawnPosition = parentObject.position + Vector3.forward * lane;
         Instantiate(tiles[Random.Range(0, tiles.Length)], spawnPosition, Quaternion.identity, parentObject);
         lane++;
+    }
+
+    public void ResetMap()
+    {
+        // Restablece la posición del mapa a la posición inicial
+        transform.position = initialPosition;
     }
 }

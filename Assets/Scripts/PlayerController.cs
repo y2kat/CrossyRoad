@@ -12,10 +12,14 @@ public class PlayerController : MonoBehaviour
     public PanelManager panelManager;
     public Menu menu;
 
+    [SerializeField] private Vector3 initialPosition;
+
     private void Awake()
     {
         inputActions = new PlayerInputActions();
         inputActions.Enable();
+
+        initialPosition = transform.position;
     }
 
     void Start()
@@ -47,7 +51,7 @@ public class PlayerController : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over");
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
 
         /*int highScore = PlayerPrefs.GetInt("Highscore", 0);
         if (score > highScore)
@@ -56,5 +60,8 @@ public class PlayerController : MonoBehaviour
         }*/
 
         menu.showDeathScreen();
+
+        transform.position = initialPosition;
+        FindObjectOfType<MapController>().ResetMap();
     }
 }

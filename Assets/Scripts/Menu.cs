@@ -31,7 +31,6 @@ public class Menu : MonoBehaviour
 
     public void returnToMenu()
     {
-        Time.timeScale = 1.0f; 
         level.SetActive(false);
         menu.SetActive(true);
         deathPanel.SetActive(false);
