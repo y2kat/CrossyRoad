@@ -16,7 +16,7 @@ public class CoinGenerator : MonoBehaviour
     {
         // Genera monedas en una posición aleatoria a lo largo del largo de la carretera
         float randomX = Random.Range(-roadLength / 2, roadLength / 2);
-        Vector3 coinPosition = new Vector3(transform.position.x + randomX, transform.position.y + 1, transform.position.z); // Ajusta la posición y altura como necesites
+        Vector3 coinPosition = new Vector3(transform.position.x + randomX, transform.position.y + .5f, transform.position.z); // Ajusta la posición y altura como necesites
         Instantiate(coinPrefab, coinPosition, Quaternion.identity);
     }
 }
