@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private PlayerInputActions inputActions;
     public float forceMovement = 1;
+    public bool alive = true;
 
     private void Awake()
     {
@@ -26,4 +27,6 @@ public class PlayerController : MonoBehaviour
         Vector3 direction = new Vector3(movementInput.x, 0, movementInput.y) * forceMovement;
         transform.position += direction;
     }
+
+
 }

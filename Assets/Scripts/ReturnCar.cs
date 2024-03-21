@@ -8,7 +8,7 @@ public class ReturnCar : MonoBehaviour
     {
         if(other.CompareTag("car"))
         {
-            other.transform.Translate(0,0,20);
+            other.transform.Translate(0,0,40);
         }
     }
 }
